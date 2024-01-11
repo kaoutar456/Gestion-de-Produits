@@ -14,12 +14,12 @@ public class ProduitService {
     public void createProduit(Produit produit) {
    
         if (produitExiste(produit.getId()) || produitExiste(produit.getNom())) {
-            throw new IllegalArgumentException("Un produit avec le même ID ou nom existe déjà.");
+            throw new IllegalArgumentException("Un produit avec le mÃªme ID ou nom existe dÃ©jÃ .");
         }
 
     
         if (produit.getPrix() <= 0 || produit.getQuantite() < 0) {
-            throw new IllegalArgumentException("Le prix et la quantité doivent être positifs.");
+            throw new IllegalArgumentException("Le prix et la quantitÃ© doivent Ãªtre positifs.");
         }
 
        
@@ -34,7 +34,7 @@ public class ProduitService {
         }
 
      
-        throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
+        throw new IllegalArgumentException("Produit non trouvÃ© avec l'ID : " + id);
     }
 
     public void updateProduit(Long id, Produit updatedProduit) {
@@ -48,7 +48,7 @@ public class ProduitService {
 
              
                 if (existingProduit.getPrix() <= 0 || existingProduit.getQuantite() < 0) {
-                    throw new IllegalArgumentException("Le prix et la quantité doivent être positifs.");
+                    throw new IllegalArgumentException("Le prix et la quantitÃ© doivent Ãªtre positifs.");
                 }
 
                 return;
@@ -56,7 +56,7 @@ public class ProduitService {
         }
 
        
-        throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
+        throw new IllegalArgumentException("Produit non trouvÃ© avec l'ID : " + id);
     }
 
     public void deleteProduit(Long id) {
@@ -70,8 +70,37 @@ public class ProduitService {
         }
 
      
-        throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
+        throw new IllegalArgumentException("Produit non trouvÃ© avec l'ID : " + id);
     }
+    
+    
+    
+   
+    
+    
+    
+    
+    
+   
+
+    public void updateProduit1(Long id, Produit updatedProduit) {
+        for (int i = 0; i < produits.size(); i++) {
+            Produit existingProduit = produits.get(i);
+            if (existingProduit.getId().equals(id)) {
+              
+                existingProduit.setNom(updatedProduit.getNom());
+                existingProduit.setPrix(updatedProduit.getPrix());
+                existingProduit.setQuantite(updatedProduit.getQuantite());
+
+             
+                if (existingProduit.getPrix() <= 0 || existingProduit.getQuantite() < 0) {
+                    throw new IllegalArgumentException("Le prix et la quantitÃ© doivent Ãªtre positifs.");
+                }
+
+                return;
+            }
+        }
+
 
     
     
@@ -84,8 +113,20 @@ public class ProduitService {
         }
 
      
-        throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
+        throw new IllegalArgumentException("Produit non trouvÃ© avec l'ID : " + id);
     }
+
+
+       
+        throw new IllegalArgumentException("Produit non trouvÃ© avec l'ID : " + id);
+    }
+
+ 
+
+    
+    
+    
+    
 
     
     
