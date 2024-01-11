@@ -72,7 +72,47 @@ public class ProduitService {
      
         throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
     }
+    
+    
+    
+   
+    
+    
+    
+    
+    
+   
 
+    public void updateProduit1(Long id, Produit updatedProduit) {
+        for (int i = 0; i < produits.size(); i++) {
+            Produit existingProduit = produits.get(i);
+            if (existingProduit.getId().equals(id)) {
+              
+                existingProduit.setNom(updatedProduit.getNom());
+                existingProduit.setPrix(updatedProduit.getPrix());
+                existingProduit.setQuantite(updatedProduit.getQuantite());
+
+             
+                if (existingProduit.getPrix() <= 0 || existingProduit.getQuantite() < 0) {
+                    throw new IllegalArgumentException("Le prix et la quantité doivent être positifs.");
+                }
+
+                return;
+            }
+        }
+
+       
+        throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
+    }
+
+ 
+
+    
+    
+    
+    
+    
+    
   
     private boolean produitExiste(Long id) {
         return produits.stream().anyMatch(produit -> produit.getId().equals(id));
