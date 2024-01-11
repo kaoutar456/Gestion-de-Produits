@@ -73,6 +73,22 @@ public class ProduitService {
         throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
     }
 
+    
+    
+    
+    public Produit readProduit1(Long id) {
+        for (Produit produit : produits) {
+            if (produit.getId().equals(id)) {
+                return produit;
+            }
+        }
+
+     
+        throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
+    }
+
+    
+    
   
     private boolean produitExiste(Long id) {
         return produits.stream().anyMatch(produit -> produit.getId().equals(id));
