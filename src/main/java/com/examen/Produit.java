@@ -46,6 +46,26 @@ public class Produit {
         this.quantite = quantite;
     }
 
+
+     
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Produit produit = (Produit) obj;
+        return id.equals(produit.id) && nom.equals(produit.nom) && Double.compare(produit.prix, prix) == 0 && quantite == produit.quantite;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nom, prix, quantite);
+    }
+
     @Override
     public String toString() {
         return "Produit{id=" + id + ", nom='" + nom + "', prix=" + prix + ", quantite=" + quantite + '}';
