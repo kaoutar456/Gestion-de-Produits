@@ -26,6 +26,7 @@ public class ProduitService {
         produits.add(produit);
     }
 
+
     public Produit readProduit(Long id) {
         for (Produit produit : produits) {
             if (produit.getId().equals(id)) {
@@ -58,6 +59,7 @@ public class ProduitService {
        
         throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
     }
+
 
     public void deleteProduit(Long id) {
         Iterator<Produit> iterator = produits.iterator();
