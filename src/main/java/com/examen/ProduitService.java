@@ -26,38 +26,7 @@ public class ProduitService {
         produits.add(produit);
     }
 
-    public Produit readProduit(Long id) {
-        for (Produit produit : produits) {
-            if (produit.getId().equals(id)) {
-                return produit;
-            }
-        }
-
-     
-        throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
-    }
-
-    public void updateProduit(Long id, Produit updatedProduit) {
-        for (int i = 0; i < produits.size(); i++) {
-            Produit existingProduit = produits.get(i);
-            if (existingProduit.getId().equals(id)) {
-              
-                existingProduit.setNom(updatedProduit.getNom());
-                existingProduit.setPrix(updatedProduit.getPrix());
-                existingProduit.setQuantite(updatedProduit.getQuantite());
-
-             
-                if (existingProduit.getPrix() <= 0 || existingProduit.getQuantite() < 0) {
-                    throw new IllegalArgumentException("Le prix et la quantité doivent être positifs.");
-                }
-
-                return;
-            }
-        }
-
-       
-        throw new IllegalArgumentException("Produit non trouvé avec l'ID : " + id);
-    }
+   
 
     public void deleteProduit(Long id) {
         Iterator<Produit> iterator = produits.iterator();
