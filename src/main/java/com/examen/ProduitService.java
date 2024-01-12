@@ -110,7 +110,7 @@ public class ProduitService {
     public Produit readProduit1(Long id) {
         for (Produit produit : produits) {
             if (produit.getId().equals(id)) {
-                return produit;
+                return;
             }
         }
 
